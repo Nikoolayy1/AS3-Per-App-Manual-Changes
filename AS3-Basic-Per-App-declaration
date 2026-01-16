@@ -1,0 +1,33 @@
+{
+    "id": "per-app-declarationn",
+    "schemaVersion": "3.55.0",
+    "controls": {
+        "class": "Controls",
+        "logLevel": "debug",
+        "trace": true,
+        "traceResponse": true
+    },
+         "A2": {
+            "class": "Application",
+            "service": {
+               "class": "Service_HTTP",
+               "virtualAddresses": [
+                  "10.0.3.10"
+               ],
+               "pool": "web2_pool"
+            },
+            "web2_pool": {
+               "class": "Pool",
+               "monitors": [
+                  "http"
+               ],
+               "members": [{
+                  "servicePort": 80,
+                  "serverAddresses": [
+                     "192.7.21.10",
+                     "192.7.21.11"
+                  ]
+               }]
+            }
+         }
+      }
